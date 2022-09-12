@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css';
 import { Image } from './components/Image'
+import { Characters } from './components/Characters';
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
@@ -24,6 +25,7 @@ const firestore = firebase.firestore()
 function App() {
   return (
     <div>
+        <Characters />
         <Image />
     </div>
   );
