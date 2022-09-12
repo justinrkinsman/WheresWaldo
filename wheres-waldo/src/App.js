@@ -23,10 +23,14 @@ const auth = firebase.auth()
 const firestore = firebase.firestore()
 
 function App() {
+  const click = e => {
+    let index = e.target.id
+    console.log(index)
+  }
   return (
     <div>
         <Characters />
-        <Image />
+        <Image onClick={click}/>
     </div>
   );
 }
