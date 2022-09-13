@@ -1,0 +1,24 @@
+#Grimes, #Moe, #Poochie {
+    position: absolute;
+    background-color: blue;
+}
+
+#Grimes {
+    left: 1100px;
+    top: 905px;
+    height: 150px;
+}
+
+#Moe {
+    left: 2250px;
+    top: 900px;
+    height: 125px;
+    width: 75px;
+}
+
+#Poochie {
+    left: 2280px;
+    top: 375px;
+    height: 75px;
+    width: 75px;
+}

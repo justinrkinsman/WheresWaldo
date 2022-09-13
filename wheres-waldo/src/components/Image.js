@@ -1,6 +1,7 @@
 import React from 'react'
 import Simpsons from '../images/simpsons.jpg'
 import { ClickOnImage } from './ClickOnImage'
+import './Image.css'
 
 export const Image = () => {
     return (
@@ -12,6 +13,9 @@ export const Image = () => {
             id='poster' 
             onClick={ClickOnImage}>
         </img>
+        <div id='Grimes'></div>
+        <div id='Moe'></div>
+        <div id='Poochie'></div>
     </>
     )
 }

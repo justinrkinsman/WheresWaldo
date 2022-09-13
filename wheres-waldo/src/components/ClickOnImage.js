@@ -24,4 +24,5 @@ const CloseCharacterSelector = (e) => {
 
 export const ClickOnImage = e => {
     IsCharacterSelectorOpen(e)
+    console.log(e)
 }
