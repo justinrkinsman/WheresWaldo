@@ -12,6 +12,8 @@ const IsCharacterSelectorOpen = (e) => {
 const OpenCharacterSelector = (e) => {
     let box = document.getElementById('CharacterSelector')
     box.style.visibility = 'visible'
+    box.style.left = e.pageX + 'px'
+    box.style.top = e.pageY + 'px'
 }
 
 //If character selector is open
