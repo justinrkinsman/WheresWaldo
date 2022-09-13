@@ -1,3 +1,6 @@
+import React from 'react'
+import { IsPlayerChoiceCorrect } from './ClickOnCharacter.js'
+
 //Determine if character selector is open
 const IsCharacterSelectorOpen = (e) => {
     let box = document.getElementById('CharacterSelector')
@@ -22,6 +25,9 @@ const CloseCharacterSelector = (e) => {
     box.style.visibility = 'hidden'
 }
 
-export const ClickOnImage = e => {
+export const ClickOnImage = (e) => {
     IsCharacterSelectorOpen(e)
+    if (e.target.id !== 'poster'){
+        IsPlayerChoiceCorrect(e.target.id)
+    }
 }

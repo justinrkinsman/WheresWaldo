@@ -1,4 +1,5 @@
 #CharacterSelector {
     position: absolute;
     background-color: grey;
+    visibility: hidden;
 }
