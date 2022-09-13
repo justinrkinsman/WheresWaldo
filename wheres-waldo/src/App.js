@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css';
 import { Image } from './components/Image'
 import { Characters } from './components/Characters';
+import { CharacterSelection } from './components/CharacterSelection';
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
@@ -23,14 +24,11 @@ const auth = firebase.auth()
 const firestore = firebase.firestore()
 
 function App() {
-  const click = e => {
-    let index = e.target.id
-    console.log(index)
-  }
   return (
     <div>
         <Characters />
-        <Image onClick={click}/>
+        <Image />
+        <CharacterSelection />
     </div>
   );
 }
