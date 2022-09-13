@@ -28,11 +28,7 @@ function App() {
     <div>
         <Characters />
         <Image />
-        <div id='CharacterSelector'>
-            <p>Frank Grimes</p>
-            <p>Moe Szyslak</p>
-            <p>Poochie</p>
-        </div>
+        <CharacterSelection />
     </div>
   );
 }
