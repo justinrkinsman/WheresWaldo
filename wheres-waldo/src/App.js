@@ -3,6 +3,7 @@ import './App.css';
 import { Image } from './components/Image'
 import { Characters } from './components/Characters';
 import { CharacterSelection } from './components/CharacterSelection';
+import { Result } from './components/Result'
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
@@ -27,6 +28,7 @@ function App() {
   return (
     <div>
         <Characters />
+        <Result />
         <Image />
         <CharacterSelection />
     </div>
