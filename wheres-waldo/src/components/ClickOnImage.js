@@ -2,12 +2,12 @@ import React from 'react'
 import { IsPlayerChoiceCorrect } from './ClickOnCharacter.js'
 
 //Determine if character selector is open
-const IsCharacterSelectorOpen = (e) => {
+export function IsCharacterSelectorOpen(e){
     let box = document.getElementById('CharacterSelector')
     if (box.style.visibility === 'hidden') {
         OpenCharacterSelector(e)
     }else{
-        CloseCharacterSelector(e)
+        CloseCharacterSelector()
     }
 }
 
@@ -20,7 +20,7 @@ const OpenCharacterSelector = (e) => {
 }
 
 //If character selector is open
-const CloseCharacterSelector = (e) => {
+const CloseCharacterSelector = () => {
     let box = document.getElementById('CharacterSelector')
     let char = document.getElementsByClassName('active')
     box.style.visibility = 'hidden'

@@ -1,11 +1,15 @@
 import React from 'react'
 import { ClickOnImage  } from './ClickOnImage'
+import { IsCharacterSelectorOpen } from './ClickOnImage'
 
 export function IsPlayerChoiceCorrect(characterName){
-    console.log(characterName)
     let box = document.getElementById(characterName)
     if (box.classList.contains('active')){
         console.log('Woohoo!')
+        let char = document.getElementsByClassName(characterName)
+        char[0].style.display = 'none'
+        let select = document.getElementById('CharacterSelector')
+        select.style.visibility = 'hidden'
     }else{
         console.log("D'oh!")
     }
@@ -18,9 +22,12 @@ export const PlayerClicksOnCharacterName = (e) => {
 
 export default function ClickOnCharacterDiv(e) {
     let box = document.getElementById('CharacterSelector')
-    box.style.visibility = 'visible'
-    box.style.left = e.pageX + 'px'
-    box.style.top = e.pageY + 'px'
-    console.log(e.target)
     e.target.classList.add('active')
+    if (box.style.visibility === 'visible'){
+        box.style.visibility = 'hidden'
+    }else{
+        box.style.visibility = 'visible'
+        box.style.left = e.pageX + 'px'
+        box.style.top = e.pageY + 'px'
+    }
 }
