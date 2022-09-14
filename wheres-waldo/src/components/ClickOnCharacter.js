@@ -1,4 +1,5 @@
 import React from 'react'
+import { ClickOnImage  } from './ClickOnImage'
 
 export function IsPlayerChoiceCorrect(characterName){
     console.log(characterName)
@@ -16,5 +17,10 @@ export const PlayerClicksOnCharacterName = (e) => {
 }
 
 export default function ClickOnCharacterDiv(e) {
+    let box = document.getElementById('CharacterSelector')
+    box.style.visibility = 'visible'
+    box.style.left = e.pageX + 'px'
+    box.style.top = e.pageY + 'px'
+    console.log(e.target)
     e.target.classList.add('active')
 }

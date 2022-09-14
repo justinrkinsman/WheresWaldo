@@ -22,7 +22,9 @@ const OpenCharacterSelector = (e) => {
 //If character selector is open
 const CloseCharacterSelector = (e) => {
     let box = document.getElementById('CharacterSelector')
+    let char = document.getElementsByClassName('active')
     box.style.visibility = 'hidden'
+    char[0].classList.remove('active')
 }
 
 export const ClickOnImage = (e) => {
