@@ -1,17 +1,18 @@
 import React from 'react'
 import { ClickOnImage  } from './ClickOnImage'
 import { IsCharacterSelectorOpen } from './ClickOnImage'
+import { DisplayResults } from './Result'
 
 export function IsPlayerChoiceCorrect(characterName){
     let box = document.getElementById(characterName)
     if (box.classList.contains('active')){
-        console.log('Woohoo!')
+        DisplayResults('correct')
         let char = document.getElementsByClassName(characterName)
         char[0].style.display = 'none'
         let select = document.getElementById('CharacterSelector')
         select.style.visibility = 'hidden'
     }else{
-        console.log("D'oh!")
+        DisplayResults('incorrect')
     }
 }
 
