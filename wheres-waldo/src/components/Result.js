@@ -6,9 +6,11 @@ export function DisplayResults(result) {
     resultDiv.style.display = "inline"
     if (result === 'correct'){
         resultDiv.textContent = 'Woohoo!'
+        resultDiv.style.backgroundColor = 'green'
         setTimeout(hideResults, 3000)
     }else if (result === 'incorrect'){
         resultDiv.textContent = "D'oh!"
+        resultDiv.style.backgroundColor = 'red'
         setTimeout(hideResults, 3000)
     }
 }

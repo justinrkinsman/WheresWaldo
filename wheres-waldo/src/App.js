@@ -26,7 +26,7 @@ const firestore = firebase.firestore()
 
 function App() {
   return (
-    <div>
+    <div id='Main'>
         <Characters />
         <Result />
         <Image />
