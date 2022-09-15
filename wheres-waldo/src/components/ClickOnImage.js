@@ -1,4 +1,3 @@
-import React from 'react'
 import { IsPlayerChoiceCorrect } from './ClickOnCharacter.js'
 
 //Determine if character selector is open

@@ -11,6 +11,7 @@ import 'firebase/compat/auth'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDWSX8mJCGRCGTya6fNJ5TOoutOHoXqZ9I",
@@ -23,6 +24,16 @@ firebase.initializeApp({
 
 const auth = firebase.auth()
 const firestore = firebase.firestore()
+
+onAuthStateChanged(auth, user => {
+  console.log(`You are logged in as ${user}`)
+})
+
+signInWithPopup(auth, new GoogleAuthProvider())
+
+//const db = getFirestore(app)
+
+//const boatRef = doc(db, )
 
 function App() {
   return (
