@@ -1,6 +1,3 @@
-import React from 'react'
-import { ClickOnImage  } from './ClickOnImage'
-import { IsCharacterSelectorOpen } from './ClickOnImage'
 import { DisplayResults } from './Result'
 
 export function IsPlayerChoiceCorrect(characterName){
