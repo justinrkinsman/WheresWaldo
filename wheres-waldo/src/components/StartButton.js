@@ -17,10 +17,12 @@ const startTimer = (e) => {
 }
 
 export function gameOver() {
-    //when all characters are clicked, add a class to characterSelector (e.g. winner)
-    //this function will look at characterSelector to determine if class is winner
-    //if it is return loser
-    //if not start over until className is winner then return winner
+    let characterSelector = document.getElementById('CharacterSelector')
+    if (characterSelector.classList.contains('winner')){
+        return 'winner'
+    }else{
+        return 'loser'
+    }
     //in startTime, if return winner, let endTime = performance.now()
     //let totalTime = endTime - startTime
     //total time is player's score
