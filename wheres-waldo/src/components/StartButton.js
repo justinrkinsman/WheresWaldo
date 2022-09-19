@@ -10,10 +10,13 @@ export const StartButton = () => {
 const startTimer = (e) => {
     e.target.style.display = 'none'
     let startTime = performance.now()
-    console.log(startTime)
+    gameOver()
+    let endTime = performance.now()
+    let totalTime = endTime - startTime
+    console.log(`Your total time was: ${totalTime}`)
 }
 
-const gameOver = () => {
+export function gameOver() {
     //when all characters are clicked, add a class to characterSelector (e.g. winner)
     //this function will look at characterSelector to determine if class is winner
     //if it is return loser

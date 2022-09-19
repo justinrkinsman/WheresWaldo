@@ -11,6 +11,20 @@ export function IsPlayerChoiceCorrect(characterName){
     }else{
         DisplayResults('incorrect')
     }
+    AddClassNameToCharacterSelector()
+}
+
+function AddClassNameToCharacterSelector() {
+    let characterSelector = document.getElementById('CharacterSelector')
+    let grimes = document.getElementsByClassName('Grimes')
+    let moe = document.getElementsByClassName('Moe')
+    let poochie = document.getElementsByClassName('Poochie')
+    if (grimes[0].style.display === 'none' && moe[0].style.display === 'none' && poochie[0].style.display === 'none'){
+        //console.log(characterSelector)
+        characterSelector.classList.add('winner')
+    }else{
+        console.log('loser')
+    }
 }
 
 export const PlayerClicksOnCharacterName = (e) => {
