@@ -1,0 +1,14 @@
+@import url('http://fonts.cdnfonts.com/css/homer-simpson-revised');
+
+#Main {
+    position: absolute
+}
+
+#Start {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-family: 'Homer Simpson Revised', sans-serif;
+}
