@@ -23,8 +23,7 @@ export function gameOver() {
     if (characterSelector.classList.contains('winner')){
         let stopTimer = performance.now()
         let score = stopTimer - startTime
-        console.log(stopTimer)
-        console.log(startTime)
-        console.log(score)
+        document.getElementById('Start').style.display = 'inline'
+        document.getElementById('Start').textContent = `Congratulations! Your final time is: ${Math.round((score / 1000) * 100) / 100} seconds`
     }
 }
