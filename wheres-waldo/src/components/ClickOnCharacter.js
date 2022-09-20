@@ -1,4 +1,5 @@
 import { DisplayResults } from './Result'
+import { gameOver } from './StartButton'
 
 export function IsPlayerChoiceCorrect(characterName){
     let box = document.getElementById(characterName)
@@ -20,10 +21,8 @@ function AddClassNameToCharacterSelector() {
     let moe = document.getElementsByClassName('Moe')
     let poochie = document.getElementsByClassName('Poochie')
     if (grimes[0].style.display === 'none' && moe[0].style.display === 'none' && poochie[0].style.display === 'none'){
-        //console.log(characterSelector)
         characterSelector.classList.add('winner')
-    }else{
-        console.log('loser')
+        gameOver()
     }
 }
 

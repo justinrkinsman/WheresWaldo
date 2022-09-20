@@ -3,27 +3,28 @@ import './StartButton.css'
 
 export const StartButton = () => {
     return(
-        <button id='Start' onClick={startTimer}>Start</button>
+        <button id='Start' onClick={startButton}>Start</button>
     )
 }
 
-const startTimer = (e) => {
-    e.target.style.display = 'none'
-    let startTime = performance.now()
-    gameOver()
-    let endTime = performance.now()
-    let totalTime = endTime - startTime
-    console.log(`Your total time was: ${totalTime}`)
+let startTime = 0
+
+const startButton = () => {
+    document.getElementById('Start').style.display = 'none'
+    startTimer()
+}
+
+const startTimer = () => {
+    startTime = performance.now()
 }
 
 export function gameOver() {
     let characterSelector = document.getElementById('CharacterSelector')
     if (characterSelector.classList.contains('winner')){
-        return 'winner'
-    }else{
-        return 'loser'
+        let stopTimer = performance.now()
+        let score = stopTimer - startTime
+        console.log(stopTimer)
+        console.log(startTime)
+        console.log(score)
     }
-    //in startTime, if return winner, let endTime = performance.now()
-    //let totalTime = endTime - startTime
-    //total time is player's score
 }
