@@ -5,6 +5,7 @@ import { Characters } from './components/Characters';
 import { CharacterSelection } from './components/CharacterSelection';
 import { Result } from './components/Result'
 import { StartButton } from './components/StartButton';
+import { SignIn } from './components/SignIn'
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
@@ -44,6 +45,7 @@ function App() {
         <Image />
         <CharacterSelection />
         <StartButton />
+        <SignIn />
     </div>
   );
 }
