@@ -56,17 +56,25 @@ firebase.initializeApp({
 const auth = firebase.auth()
 const firestore = firebase.firestore()
 
-/*onAuthStateChanged(auth, user => {
-  console.log(`You are logged in as ${user}`)
+onAuthStateChanged(auth, user => {
+  if (user){
+    let username = getAuth()
+    console.log(`You are logged in as ${username.currentUser.displayName}`)
+  }else{
+    console.log('Logged off')
+  }
 })
 
-signInWithPopup(auth, new GoogleAuthProvider())*/
+const getProfilePicUrl = () => {
+  return getAuth().currentUser.photoURL || '/images/profile_placeholder.png';
+}
 
 async function signIn(e) {
   let provider = new GoogleAuthProvider();
   await signInWithPopup(getAuth(), provider)
   e.target.style.visibility = 'hidden'
   document.getElementById('SignOut').style.visibility = 'visible'
+  console.log(getAuth())
 }
 
 function signOutUser(e) {
@@ -91,7 +99,7 @@ function App() {
         <CharacterSelection />
         <StartButton />
         <SignIn signInFunction={signIn} />
-        <SignOut signOutFunction={signOutUser} />
+        <SignOut signOutFunction={signOutUser}/>
     </div>
   );
 }

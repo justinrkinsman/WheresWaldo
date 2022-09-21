@@ -11,8 +11,11 @@ export const SignIn = (props) => {
 
 export function SignOut(props) {
     return (
-        <button id='SignOut' onClick={props.signOutFunction}>
-            Sign-out
-        </button>
+        <div id='ProfileBox'>
+            <div id='ProfilePic'/><div/>
+            <button id='SignOut' onClick={props.signOutFunction}>
+                Sign-out
+            </button>
+        </div>
     )
 }
