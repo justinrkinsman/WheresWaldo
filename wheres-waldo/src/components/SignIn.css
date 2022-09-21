@@ -1,4 +1,4 @@
-#SignIn {
+#SignIn, #SignOut {
     position: absolute;
     top: 0;
     right: 0;
@@ -7,4 +7,8 @@
     height: 60px;
     width: 60px;
     border-radius: 50px;
+}
+
+#SignOut {
+    visibility: hidden;
 }
