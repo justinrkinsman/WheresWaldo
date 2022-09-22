@@ -4,11 +4,15 @@
     position: absolute
 }
 
-#Start {
+#Start, #Score {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
     font-family: 'Homer Simpson Revised', sans-serif;
+}
+
+#Score {
+    visibility: hidden;
 }

@@ -1,22 +1,6 @@
 import React from 'react'
-import './StartButton.css'
-
-export const StartButton = () => {
-    return(
-        <button id='Start' onClick={startButton}>Start</button>
-    )
-}
 
 let startTime = 0
-
-const startButton = () => {
-    document.getElementById('Start').style.display = 'none'
-    startTimer()
-}
-
-const startTimer = () => {
-    startTime = performance.now()
-}
 
 export const gameOver = () => {
     let characterSelector = document.getElementById('CharacterSelector')
@@ -24,7 +8,8 @@ export const gameOver = () => {
         let stopTimer = performance.now()
         let scoreInMilliseconds = stopTimer - startTime
         let score = Math.round((scoreInMilliseconds / 1000) * 100) / 100
-        document.getElementById('Score').style.visibility = 'visible'
+        document.getElementById('Start').style.display = 'inline'
+        document.getElementById('Start').textContent = `Congratulations! Your final time is: ${score} seconds`
         GetScore(score)
     }
 }

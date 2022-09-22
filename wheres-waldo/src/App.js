@@ -4,8 +4,9 @@ import { Image } from './components/Image'
 import { Characters } from './components/Characters';
 import { CharacterSelection } from './components/CharacterSelection';
 import { Result } from './components/Result'
-import { StartButton } from './components/StartButton';
+import { StartButton, GetScore } from './components/StartButton';
 import { SignIn, SignOut } from './components/SignIn'
+import { FinalScore } from './components/FinalScore';
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
@@ -43,6 +44,7 @@ import {
 } from 'firebase/storage';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { getPerformance } from 'firebase/performance';
+import { getSelectionRange } from '@testing-library/user-event/dist/utils';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDWSX8mJCGRCGTya6fNJ5TOoutOHoXqZ9I",
@@ -65,9 +67,11 @@ onAuthStateChanged(auth, user => {
   }
 })
 
-const getProfilePicUrl = () => {
+/*const getProfilePicUrl = () => {
   return getAuth().currentUser.photoURL || '/images/profile_placeholder.png';
 }
+
+let profilePicUrl = getProfilePicUrl()*/
 
 async function signIn(e) {
   let provider = new GoogleAuthProvider();
@@ -90,6 +94,21 @@ signInButton.addEventListener('click', signIn)*/
 
 //const boatRef = doc(db, )
 
+async function saveHighScore() {
+  // Add a new score to the Firebase database.
+  let username = getAuth()
+  try {
+   await addDoc(collection(getFirestore(), 'scores'), {
+     name: username.currentUser.displayName,
+     score: `${GetScore()} seconds`,
+     timestamp: serverTimestamp()
+   });
+ }
+ catch(error) {
+   console.error('Error writing new message to Firebase Database', error);
+ }
+}
+
 function App() {
   return (
     <div id='Main'>
@@ -98,8 +117,9 @@ function App() {
         <Image />
         <CharacterSelection />
         <StartButton />
+        <FinalScore score={saveHighScore}/>
         <SignIn signInFunction={signIn} />
-        <SignOut signOutFunction={signOutUser}/>
+        <SignOut signOutFunction={signOutUser} /*pic={profilePicUrl}*//>
     </div>
   );
 }
