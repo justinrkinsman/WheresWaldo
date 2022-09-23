@@ -12,10 +12,6 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import 'firebase/compat/auth'
 
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
-
-import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   onAuthStateChanged,
@@ -23,28 +19,6 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  query,
-  orderBy,
-  limit,
-  onSnapshot,
-  setDoc,
-  updateDoc,
-  doc,
-  serverTimestamp,
-} from 'firebase/firestore';
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from 'firebase/storage';
-import { getMessaging, getToken, onMessage } from 'firebase/messaging';
-import { getPerformance } from 'firebase/performance';
-import { getSelectionRange } from '@testing-library/user-event/dist/utils';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDWSX8mJCGRCGTya6fNJ5TOoutOHoXqZ9I",
@@ -56,7 +30,6 @@ firebase.initializeApp({
 })
 
 const auth = firebase.auth()
-const firestore = firebase.firestore()
 
 onAuthStateChanged(auth, user => {
   if (user){
@@ -93,21 +66,6 @@ signInButton.addEventListener('click', signIn)*/
 //const db = getFirestore(app)
 
 //const boatRef = doc(db, )
-
-async function saveHighScore() {
-  // Add a new score to the Firebase database.
-  let username = getAuth()
-  try {
-   await addDoc(collection(getFirestore(), 'scores'), {
-     name: username.currentUser.displayName,
-     score: ` seconds`,
-     timestamp: serverTimestamp()
-   });
- }
- catch(error) {
-   console.error('Error writing new message to Firebase Database', error);
- }
-}
 
 function App() {
   return (
