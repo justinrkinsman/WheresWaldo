@@ -1,5 +1,5 @@
 import { DisplayResults } from './Result'
-import { gameOver } from './StartButton'
+import { gameOver } from './FinalScore'
 
 export function IsPlayerChoiceCorrect(characterName){
     let box = document.getElementById(characterName)

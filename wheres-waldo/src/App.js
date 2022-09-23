@@ -4,7 +4,7 @@ import { Image } from './components/Image'
 import { Characters } from './components/Characters';
 import { CharacterSelection } from './components/CharacterSelection';
 import { Result } from './components/Result'
-import { StartButton, GetScore } from './components/StartButton';
+import { StartButton } from './components/StartButton';
 import { SignIn, SignOut } from './components/SignIn'
 import { FinalScore } from './components/FinalScore';
 
@@ -100,7 +100,7 @@ async function saveHighScore() {
   try {
    await addDoc(collection(getFirestore(), 'scores'), {
      name: username.currentUser.displayName,
-     score: `${GetScore()} seconds`,
+     score: ` seconds`,
      timestamp: serverTimestamp()
    });
  }
@@ -117,7 +117,7 @@ function App() {
         <Image />
         <CharacterSelection />
         <StartButton />
-        <FinalScore score={saveHighScore}/>
+        <FinalScore/>
         <SignIn signInFunction={signIn} />
         <SignOut signOutFunction={signOutUser} /*pic={profilePicUrl}*//>
     </div>
